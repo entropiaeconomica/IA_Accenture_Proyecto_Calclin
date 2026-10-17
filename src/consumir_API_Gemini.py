@@ -1,0 +1,30 @@
+import requests
+import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def construir_peticion(pregunta):
+    API_KEY = os.getenv('GEMINI_API_KEY')
+    modelo = "gemini-3.5-flash-lite"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
+    body = json.dumps({"contents": [{"parts": [{"text": pregunta}]}]})
+    headers = {'Content-Type': 'application/json', 'x-goog-api-key': API_KEY}
+    return url, body, headers
+
+def enviar_peticion(url, body, headers):
+    response = requests.request("POST", url, headers=headers, data=body)
+    respuesta = json.loads(response.text)
+    return respuesta
+
+def obtener_texto_respuesta(respuesta):
+    return respuesta['candidates'][0]['content']['parts'][0]['text']
+
+def prueba_de_conexion(pregunta):
+    url, body, headers = construir_peticion(pregunta)
+    respuesta = enviar_peticion(url, body, headers)
+    texto_respuesta = obtener_texto_respuesta(respuesta)
+    return texto_respuesta
+
+print(prueba_de_conexion("Confirma en una frase corta que esta conexión funciona"))
