@@ -32,11 +32,18 @@ def obtener_texto_respuesta(respuesta):
     except (KeyError, IndexError):
         raise ValueError("La respuesta no contiene el texto esperado en la posición especificada.")
 
+def calcular_costo_peticion(respuesta, precio_token_pregunta, precio_token_respuesta):
+    metadatos = respuesta['usageMetadata']
+    costo_pregunta = metadatos['promptTokenCount'] * precio_token_pregunta
+    costo_respuesta = metadatos['candidatesTokenCount'] * precio_token_respuesta
+    return costo_pregunta + costo_respuesta
+
 def prueba_de_conexion(pregunta):
     url, body, headers = construir_peticion(pregunta)
     respuesta = enviar_peticion(url, body, headers)
     texto_respuesta = obtener_texto_respuesta(respuesta)
-    return texto_respuesta
+    costo_peticion = calcular_costo_peticion(respuesta, 0.0001, 0.0002)  # Ejemplo de precios por token
+    return texto_respuesta, costo_peticion
 
 print(prueba_de_conexion("Cual es la capital de Chile?"))
 
