@@ -2,6 +2,7 @@ import requests
 import json
 import os
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
@@ -40,7 +41,11 @@ def calcular_costo_peticion(respuesta, precio_token_pregunta, precio_token_respu
 
 def prueba_de_conexion(pregunta):
     url, body, headers = construir_peticion(pregunta)
+    inicio = time.perf_counter()
     respuesta = enviar_peticion(url, body, headers)
+    fin = time.perf_counter()
+    duracion = fin - inicio
+    print(f"Tiempo de respuesta: {duracion:.2f} segundos")
     texto_respuesta = obtener_texto_respuesta(respuesta)
     costo_peticion = calcular_costo_peticion(respuesta, 0.0001, 0.0002)  # Ejemplo de precios por token
     return texto_respuesta, costo_peticion
