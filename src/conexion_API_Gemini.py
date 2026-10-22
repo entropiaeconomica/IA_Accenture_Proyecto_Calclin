@@ -53,6 +53,6 @@ def prueba_de_conexion(pregunta):
     costo_peticion = calcular_costo_peticion(respuesta, 0.0001, 0.0002)  # Ejemplo de precios por token
     return texto_respuesta, costo_peticion
 
-print(prueba_de_conexion("Cual es la capital de Argentina?"))
-
+#print(prueba_de_conexion("Cual es la capital de Chile?"))
+print(prueba_de_conexion("Como se calcula una estructura hiperestática?"))
     
