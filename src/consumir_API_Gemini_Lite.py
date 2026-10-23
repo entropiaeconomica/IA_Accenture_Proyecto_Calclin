@@ -84,6 +84,6 @@ def prueba_de_conexion(pregunta, system_instruction):
     data_respuesta = limpiar_texto(texto_respuesta)
     return data_respuesta
 
-pregunta = "Explica qué es una API en términos simples."
-system_instruction = "Eres un asistente técnico. Responde siempre en un máximo de 3 oraciones."
-print(prueba_de_conexion(pregunta, system_instruction))
+#pregunta = "Explica qué es una API en términos simples."
+#system_instruction = "Eres un asistente técnico. Responde siempre en un máximo de 3 oraciones."
+#print(prueba_de_conexion(pregunta, system_instruction))
