@@ -3,26 +3,49 @@ import json
 import os
 from dotenv import load_dotenv
 import time
+import re
 
 load_dotenv()
 
-def construir_peticion(pregunta):
+response_schema = {
+	"type": "OBJECT",
+	"properties": {
+    	"categoria": { "type": "STRING" },
+    	"confianza": { "type": "NUMBER" }
+	},
+	"required": ["categoria", "confianza"]
+}
+
+def construir_peticion(pregunta, system_instruction, response_schema=None):
     if not pregunta.strip():
         raise ValueError("La pregunta no puede estar vacía.")
+    if not system_instruction.strip():
+        raise ValueError("La instrucción del sistema no puede estar vacía.")
     API_KEY = os.getenv('GEMINI_API_KEY')
-    modelo = "gemini-3.5-flash-lite"
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
-    body = json.dumps({"contents": [{"parts": [{"text": pregunta}]}]})
-    headers = {'Content-Type': 'application/json', 'x-goog-api-key': API_KEY}
-    return url, body, headers
+    modelo = "gemini-3.8-flash"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent?key={API_KEY}"
+    body = {
+            "systemInstruction": {
+                "parts": [ { "text": system_instruction } ]
+            },
+            "contents": [
+                { "parts": [ { "text": pregunta } ] }
+            ]
+        }
+    if response_schema is not None:
+        body["generationConfig"] = {
+            "responseMimeType": "application/json",
+            "responseSchema": response_schema
+        }
+    return url, body    
 
-def enviar_peticion(url, body, headers):
+def enviar_peticion(url, body):
     try:
-        response = requests.request("POST", url, headers=headers, data=body)
+        response = requests.post(url, json=body)
     except requests.exceptions.ConnectionError:
         raise RuntimeError("Error de conexión. Por favor, verifica tu conexión a Internet.")
     try:
-        respuesta = json.loads(response.text)
+        respuesta = response.json()
     except requests.exceptions.JSONDecodeError:
         raise ValueError("La respuesta no es un JSON válido.")
     return respuesta
@@ -39,16 +62,30 @@ def calcular_costo_peticion(respuesta, precio_token_pregunta, precio_token_respu
     costo_respuesta = metadatos['candidatesTokenCount'] * precio_token_respuesta
     return costo_pregunta + costo_respuesta
 
-def prueba_de_conexion(pregunta):
-    url, body, headers = construir_peticion(pregunta)
+def limpiar_texto(texto):
+    # Eliminar saltos de línea y espacios extra
+    texto_limpio = re.sub(r'\s+', ' ', texto).strip()
+    try:
+        data = json.loads(texto_limpio)
+    except json.JSONDecodeError:
+        raise ValueError("El texto de la respuesta no es un JSON válido.")
+    return data
+
+def prueba_de_conexion(pregunta, system_instruction):
+    url, body = construir_peticion(pregunta, system_instruction, response_schema)
     inicio = time.perf_counter()
-    respuesta = enviar_peticion(url, body, headers)
+    respuesta = enviar_peticion(url, body)
     fin = time.perf_counter()
     duracion = fin - inicio
     print(f"Tiempo de respuesta: {duracion:.2f} segundos")
-    texto_respuesta = obtener_texto_respuesta(respuesta)
     costo_peticion = calcular_costo_peticion(respuesta, 0.0001, 0.0002)  # Ejemplo de precios por token
-    return texto_respuesta, costo_peticion
+    print(f"Costo estimado de la petición: US${costo_peticion:.6f}")
+    texto_respuesta = obtener_texto_respuesta(respuesta)
+    data_respuesta = limpiar_texto(texto_respuesta)
+    return data_respuesta
 
-#print(prueba_de_conexion("Cual es la capital de Chile?"))
-print(prueba_de_conexion("Como se calcula una estructura hiperestática?"))
+pregunta = "Explica qué es una API en términos simples."
+system_instruction = "Eres un asistente técnico. Responde siempre en un máximo de 3 oraciones."
+print(prueba_de_conexion(pregunta, system_instruction))
+
+
