@@ -84,8 +84,9 @@ def prueba_de_conexion(pregunta, system_instruction):
     data_respuesta = limpiar_texto(texto_respuesta)
     return data_respuesta
 
-pregunta = "Explica qué es una API en términos simples."
-system_instruction = "Eres un asistente técnico. Responde siempre en un máximo de 3 oraciones."
-print(prueba_de_conexion(pregunta, system_instruction))
+if __name__=="__main__":
+    pregunta = "Cual es la capital de Chile"
+    system_instruction = "Eres un geografo. Responde siempre en un máximo de 20 palabras."
+    print(prueba_de_conexion(pregunta, system_instruction))
 
 
