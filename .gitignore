@@ -3,6 +3,9 @@ venv/
 .venv/
 env/
 
+# Directorios de almacenamiento de vectores
+vectorstore/
+
 # Variables de entorno (secretos, nunca se sube)
 .env
 
