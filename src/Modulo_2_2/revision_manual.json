@@ -1,0 +1,82 @@
+[
+  {
+    "consulta": "¿Cuál es la deriva máxima en el último nivel según el DS61?",
+    "f1": 0.16,
+    "correccion_factual": "no",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": "No hay similitud de valores entre respuesta y referencia"
+  },
+  {
+    "consulta": "¿Qué norma chilena rige el diseño en hormigón armado?",
+    "f1": 0.3,
+    "correccion_factual": "si",
+    "completitud": "no",
+    "contradiccion": "no",
+    "nota": "Falta información en respuesta"
+  },
+  {
+    "consulta": "¿Qué norma chilena regula el diseño de albañilería confinada?",
+    "f1": 0.4,
+    "correccion_factual": "si",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": ""
+  },
+  {
+    "consulta": "¿Cuál es la resistencia cilíndrica mínima del hormigón estructural según DS60?",
+    "f1": 0.4,
+    "correccion_factual": "no",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": "Hay alguna diferencia de valores y notaciones"
+  },
+  {
+    "consulta": "¿Qué norma chilena establece las sobrecargas de uso en edificios? ",
+    "f1": 0.43,
+    "correccion_factual": "si",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": ""
+  },
+  {
+    "consulta": "¿Cuál es la sobrecarga mínima para dormitorios de viviendas según NCh1537?",
+    "f1": 0.64,
+    "correccion_factual": "si",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": "Unidades diferentes en respuesta y referencia"
+  },
+  {
+    "consulta": "¿Cuántas zonas sísmicas establece la norma chilena NCh433? ",
+    "f1": 0.7,
+    "correccion_factual": "si",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": ""
+  },
+  {
+    "consulta": "¿Qué decreto supremo modificó la clasificación de suelos de la NCh433?",
+    "f1": 0.73,
+    "correccion_factual": "si",
+    "completitud": "no",
+    "contradiccion": "no",
+    "nota": "Falta año del decreto en la respuesta"
+  },
+  {
+    "consulta": "¿Cuál es el desplazamiento relativo máximo de entrepiso permitido por NCh433? ",
+    "f1": 0.75,
+    "correccion_factual": "si",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": ""
+  },
+  {
+    "consulta": "¿Cuál es el factor de importancia para edificios esenciales según NCh433? ",
+    "f1": 0.76,
+    "correccion_factual": "si",
+    "completitud": "si",
+    "contradiccion": "no",
+    "nota": ""
+  }
+]

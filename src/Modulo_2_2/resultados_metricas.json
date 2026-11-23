@@ -1,0 +1,162 @@
+[
+  {
+    "consulta": "¿Cuántas zonas sísmicas establece la norma chilena NCh433?",
+    "referencia": "Establece tres zonas sísmicas: Zona 1, Zona 2 y Zona 3.",
+    "respuesta": "La norma chilena NCh433 establece tres zonas sísmicas (1, 2 y 3).",
+    "precision": 0.6666666666666666,
+    "cobertura": 0.7272727272727273,
+    "f1": 0.6956521739130435
+  },
+  {
+    "consulta": "¿Cuál es la aceleración efectiva máxima en Zona Sísmica 3 según NCh433?",
+    "referencia": "La aceleración efectiva máxima Ao es 0,40 g según NCh433.",
+    "respuesta": "Es $0,30\\text{ g}$ según la Norma Chilena 433.",
+    "precision": 0.5,
+    "cobertura": 0.4,
+    "f1": 0.4444444444444445
+  },
+  {
+    "consulta": "¿Cuál es el desplazamiento relativo máximo de entrepiso permitido por NCh433?",
+    "referencia": "El desplazamiento relativo máximo es 0,002 veces la altura de entrepiso.",
+    "respuesta": "El desplazamiento relativo máximo permitido por NCh433 es el 0,002 de la altura.",
+    "precision": 0.6923076923076923,
+    "cobertura": 0.8181818181818182,
+    "f1": 0.7500000000000001
+  },
+  {
+    "consulta": "¿Qué decreto supremo modificó la clasificación de suelos de la NCh433?",
+    "referencia": "El Decreto Supremo DS61 MINVU de 2011 modificó la clasificación sísmica.",
+    "respuesta": "El Decreto Supremo N° 61 (MINVU) modificó la clasificación de suelos.",
+    "precision": 0.7272727272727273,
+    "cobertura": 0.7272727272727273,
+    "f1": 0.7272727272727273
+  },
+  {
+    "consulta": "¿Qué parámetro geotécnico define los tipos de suelo en el DS61?",
+    "referencia": "La velocidad promedio de ondas de corte Vs30 en treinta metros.",
+    "respuesta": "La velocidad de onda de corte ($V_s30$).",
+    "precision": 0.7142857142857143,
+    "cobertura": 0.45454545454545453,
+    "f1": 0.5555555555555556
+  },
+  {
+    "consulta": "¿Cuál es la deriva máxima en el último nivel según el DS61?",
+    "referencia": "El desplazamiento lateral máximo en cubierta es 0,001 veces la altura.",
+    "respuesta": "La deriva máxima permitida es de **0,002** (dos por mil) para estructuras de hormigón.",
+    "precision": 0.14285714285714285,
+    "cobertura": 0.18181818181818182,
+    "f1": 0.16
+  },
+  {
+    "consulta": "¿Cuál es el porcentaje mínimo de masa sísmica modal según NCh433?",
+    "referencia": "Se exige al menos el 90% de la masa total.",
+    "respuesta": "El porcentaje mínimo es el 90% de la masa total.",
+    "precision": 0.6,
+    "cobertura": 0.6,
+    "f1": 0.6
+  },
+  {
+    "consulta": "¿Qué norma chilena regula las combinaciones de carga para diseño estructural?",
+    "referencia": "La norma chilena NCh3171 establece las disposiciones generales y combinaciones.",
+    "respuesta": "La NCh433 y la NCh3171 regulan las combinaciones de carga estructural en Chile.",
+    "precision": 0.38461538461538464,
+    "cobertura": 0.5,
+    "f1": 0.4347826086956522
+  },
+  {
+    "consulta": "¿Cuál es el factor de carga muerta en combinación última NCh3171?",
+    "referencia": "El factor de mayoración es 1,2 D en combinaciones con sobrecarga.",
+    "respuesta": "El factor de carga muerta típico en NCh3171 es **1.4** (o **1.2** según combinación).",
+    "precision": 0.42857142857142855,
+    "cobertura": 0.5454545454545454,
+    "f1": 0.4799999999999999
+  },
+  {
+    "consulta": "¿Qué norma chilena establece las sobrecargas de uso en edificios?",
+    "referencia": "La norma NCh1537 regula las cargas permanentes y sobrecargas de uso.",
+    "respuesta": "La NCh 1533 Of. 1979 establece las sobrecargas de uso en edificios.",
+    "precision": 0.4166666666666667,
+    "cobertura": 0.45454545454545453,
+    "f1": 0.43478260869565216
+  },
+  {
+    "consulta": "¿Cuál es la sobrecarga mínima para dormitorios de viviendas según NCh1537?",
+    "referencia": "La sobrecarga mínima uniforme para dormitorios de viviendas es 2,0 kN/m².",
+    "respuesta": "La sobrecarga mínima para dormitorios según NCh1537 es de 150 kg/m².",
+    "precision": 0.6363636363636364,
+    "cobertura": 0.6363636363636364,
+    "f1": 0.6363636363636364
+  },
+  {
+    "consulta": "¿Qué norma chilena rige el diseño en hormigón armado?",
+    "referencia": "La norma NCh430, complementada con el Decreto Supremo DS60 MINVU.",
+    "respuesta": "La norma chilena que rige es la NCh433 y NCh430.",
+    "precision": 0.3,
+    "cobertura": 0.3,
+    "f1": 0.3
+  },
+  {
+    "consulta": "¿Qué grados de acero de refuerzo establece la norma NCh204?",
+    "referencia": "Establece los grados A440-280H y A630-420H para barras con resaltes.",
+    "respuesta": "A440-280H y A630-420H.",
+    "precision": 1.0,
+    "cobertura": 0.3,
+    "f1": 0.4615384615384615
+  },
+  {
+    "consulta": "¿Cuál es la resistencia cilíndrica mínima del hormigón estructural según DS60?",
+    "referencia": "La resistencia cilíndrica mínima especificada f'c debe ser 17 MPa.",
+    "respuesta": "La resistencia mínima es $H_20$ (15 MPa o 150 kg/cm²).",
+    "precision": 0.4,
+    "cobertura": 0.4,
+    "f1": 0.4000000000000001
+  },
+  {
+    "consulta": "¿Qué norma chilena regula las cargas de viento en estructuras?",
+    "referencia": "La norma NCh432 regula el cálculo de la acción del viento.",
+    "respuesta": "La norma chilena que regula las cargas de viento es la **NCh432**.",
+    "precision": 0.5833333333333334,
+    "cobertura": 0.6363636363636364,
+    "f1": 0.6086956521739131
+  },
+  {
+    "consulta": "¿Qué norma chilena establece el cálculo de cargas de nieve?",
+    "referencia": "La norma NCh431 establece las cargas de nieve en techumbres.",
+    "respuesta": "La NCh 431 establece el cálculo de cargas de nieve en Chile.",
+    "precision": 0.5,
+    "cobertura": 0.6,
+    "f1": 0.5454545454545454
+  },
+  {
+    "consulta": "¿Qué norma chilena regula el diseño de estructuras de acero?",
+    "referencia": "La norma NCh427 regula el cálculo de estructuras de acero.",
+    "respuesta": "La norma chilena que regula el acero es la NCh427.",
+    "precision": 0.6,
+    "cobertura": 0.6,
+    "f1": 0.6
+  },
+  {
+    "consulta": "¿Qué norma chilena establece el diseño estructural en madera?",
+    "referencia": "La norma NCh1198 regula el cálculo de construcciones en madera.",
+    "respuesta": "La NCh1198 establece el diseño estructural en madera en Chile.",
+    "precision": 0.5,
+    "cobertura": 0.5,
+    "f1": 0.5
+  },
+  {
+    "consulta": "¿Qué norma chilena regula el diseño de albañilería confinada?",
+    "referencia": "La norma NCh2123 regula el diseño y cálculo de albañilería confinada.",
+    "respuesta": "La norma chilena que lo regula es la NCh2123.",
+    "precision": 0.4444444444444444,
+    "cobertura": 0.36363636363636365,
+    "f1": 0.39999999999999997
+  },
+  {
+    "consulta": "¿Cuál es el factor de importancia para edificios esenciales según NCh433?",
+    "referencia": "Para edificios de Categoría IV el factor de importancia es 1,2.",
+    "respuesta": "El factor de importancia ($I$) para edificios esenciales es 1.2.",
+    "precision": 0.8,
+    "cobertura": 0.7272727272727273,
+    "f1": 0.761904761904762
+  }
+]

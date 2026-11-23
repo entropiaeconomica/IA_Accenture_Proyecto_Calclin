@@ -82,24 +82,16 @@ def registrar_costo(respuesta: dict) -> float:
 	print(f"Operación: {total_tokens} tokens, costo estimado: ${costo_estimado_consulta:.5f} (acumulado: ${costo_total_sesion:.5f})")
 	return costo_estimado_consulta
 
-def consultar_modelo(pregunta: str, system_instruction: str = "") -> str:
+def consultar_modelo(pregunta: str, system_instruction: str = "responder en un maximo de 12 palabras") -> str:
     cuerpo = construir_peticion(pregunta, system_instruction)
     try:
         respuesta = con_reintento(lambda: enviar_peticion(cuerpo))
     except TimeoutError:
         raise RuntimeError("Se alcanzó el número máximo de intentos. No se pudo obtener una respuesta. Por favor, inténtelo de nuevo más tarde.")
-    registrar_costo(respuesta)
     texto = obtener_texto_respuesta(respuesta)
     return texto
 
-if __name__ == "__main__":
-    try:
-        respuesta = consultar_modelo("¿Cuál es la unidad de medida de la temperatura absoluta?")
-        print(respuesta)
-    except ValueError as e:
-        print(f"Error de autenticación: {e}")
-    except RuntimeError as e:
-        print(f"Error de límite de uso: {e}")
+
 
 
 
